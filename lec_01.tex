@@ -1,0 +1,135 @@
+% !TEX root = /home/computer/ucsc/master-2/quarter-2/advanced-fluids/master.tex
+\lecture{1}{Tue 04 Jan 2022 13:52}{The Governing Equations of Fluid Dynamics}
+
+\subsectionfont{\fontsize{10}{10}\selectfont}
+
+\section{Mass Conservation}%
+\textbf{Eulerian Description} 
+
+\textbf{Lagrangian Description} 
+\[
+\frac{D \rho}{Dt} = - \rho \nabla\cdot u
+.\] 
+
+Method of characteristics help this make more sense
+\section{Momentum Conservation}%
+\begin{align}
+  \rho \frac{D \vec{u}}{Dt} &= \sum \vec{F} \\
+                            &= \underbrace{\nabla p}_\text{pressure}
+                            + \underbrace{\nabla\cdot \Pi}_\text{viscosity} + F_{\text{external}}
+\end{align}
+
+where, for Newtonian fluid
+\[
+  \Pi = (k - \frac{2}{3}\mu)\nabla\cdot \vec{u}
+.\] 
+\section{Equation of State (EOS)}%
+
+Comes from thermodynamics, and is a property of
+the fluid. Relates various thermodynamics quantities to one another. e.g. $p,
+\rho, T, \underbrace{s}_\text{specific entropy / unit mass},
+\underbrace{e}_\text{eternal energy / unit mass}$. $e$ energy inside gas if on
+the whole it is not moving?. Equation of state is needed to solve fluid
+problems.
+
+For a single-component fluid or gas (e.g. water, O2), an equation of state
+relates one thermodynamic property to two others, eg
+\begin{align*}
+  p &= f( \rho, T)
+  e = f(s, p)
+\end{align*}
+
+All of these e.o.s are equivalent. They can be derived from each other.
+
+
+Examples:
+
+\textbf{Perfect gas:} 
+\[
+p = R \rho T
+.\] 
+
+where $R = $ gas constant (specific to gas considered). Or  $R = \frac{Ru}{mg}$
+where $Ru$ is the universal gas constant, and $mg$ is the molecular weight of
+gas.
+
+\textbf{Liquid:} incompressible
+\[
+  \rho = \rho(T)
+.\] 
+
+(no pressure dependence!)
+
+
+Now we have $3$ equations relating $4$ variables ($ \rho, p, \vec{u}, T$ ).
+Still need one more equation.
+
+\section{Total Energy Equation (Thermal Energy Equation).}%
+
+Last equation derives from thermodynamics
+
+\[
+\diff[]{u}{t} = \underbrace{Q}_\text{heat input / unit time}
++ \underbrace{W}_\text{work done / unit time}
+.\] 
+
+where $u$ is total internal energy of a parcel of fluid or container. Sometimes
+written as
+
+\[
+du = -p dV + TdS
+.\] 
+
+In fluid dynamics, when applied to parcels,
+
+\[
+  \rho \frac{D \rho}{Dt} = \underbrace{-p\nabla\cdot \vec{u}
+  + \underbrace{Q}_\text{heat}}_\text{external}
+  + \underbrace{\underbrace{\phi}_\text{viscous heating} -\nabla\cdot
+  \vec{q}}_\text{internal}
+.\]
+
+$\phi$ comes from nearby parcels ...
+
+\textbf{Special cases} 
+
+for a perfect gas: $e= \underbrace{q}_\text{specif heat at constant volume}T$ 
+
+\[
+\rho q \frac{DT}{Dt} = -\nabla
+.\] 
+
+hooks law $q = -k\nabla T$ 
+
+\[
+\implies
+.\] 
+
+finally $\phi:$ is usually negligible, and if not, can be written in terms of
+$ \rho, \vec{u}$ 
+
+$\implies$ energy eq relates $ \rho, T, \vec{u}, p$ 
+
+\section{Conservation Laws}%
+
+Only if we ignore dissipation (viscosity?)
+\subsection{Conservation of Mass}%
+\subsection{Conservation of Momentum in Conservative Form}%
+\begin{align*}
+  \rho \frac{D\vec{u}}{Dt} &= - \nabla p \diffp[]{ \rho \vec{u}}{t} + \nabla\cdot ( \rho \vec{u} \vec{u} + pI)
+\end{align*}
+
+$a = \rho \vec{u}$ (a vector), and $F_a = \rho \vec{u} \vec{u} + pI$ (a tensor)
+
+(Check what this looks like in Cartesian coordinates)
+
+\subsection{Conservation of Energy in Conservative Form}%
+
+(ignore viscosity for now although it can be included)
+
+\begin{align*}
+  \rho \frac{De}{Dt} &= -p\nabla\cdot \vec{u} \\
+  \rho (\diffp[]{e}{t}+ \mu\cdot\nabla e) &= -p\nabla\cdot \vec{u} \\
+  \diffp[]{ \rho e}{t}+\nabla\cdot ( \rho \vec{u} e) &= -p\nabla\cdot \vec{u} \\
+\end{align*}
+

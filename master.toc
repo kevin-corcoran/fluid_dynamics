@@ -1,0 +1,18 @@
+\contentsline {section}{Lecture 1: The Governing Equations of Fluid Dynamics}{1}{section*.1}%
+\contentsline {section}{\numberline {1}Mass Conservation}{2}{section.1}%
+\contentsline {section}{\numberline {2}Momentum Conservation}{2}{section.2}%
+\contentsline {section}{\numberline {3}Equation of State (EOS)}{2}{section.3}%
+\contentsline {section}{\numberline {4}Total Energy Equation (Thermal Energy Equation).}{3}{section.4}%
+\contentsline {section}{\numberline {5}Conservation Laws}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Conservation of Mass}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Conservation of Momentum in Conservative Form}{3}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Conservation of Energy in Conservative Form}{4}{subsection.5.3}%
+\contentsline {section}{Lecture 2: Non-dispersive Waves}{4}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Non-dispersive Waves}{4}{section.6}%
+\contentsline {section}{\numberline {7}Sound waves in a homogeneous, invariant medium}{4}{section.7}%
+\contentsline {subsection}{\numberline {7.1}The wave equation for small amplitude pertubations}{4}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Monochromatic wave solution of the wave equation in an infinite domain}{6}{section.8}%
+\contentsline {section}{Lecture 3: Sound waves in inhomogeneous, time-dependent medium}{7}{section.8}%
+\contentsline {section}{Lecture 4: Chapter 5 - part 2 (nonlinear convection}{7}{section*.4}%
+\contentsline {subsection}{\numberline {8.1}Weakly nonlinear theory of RBC above onset (above $Ra_c$)}{7}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Preliminaries: tools needed}{7}{subsection.8.2}%

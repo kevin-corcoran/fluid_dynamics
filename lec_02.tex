@@ -1,0 +1,210 @@
+% !TEX root = /home/computer/ucsc/master-2/quarter-2/advanced-fluids/master.tex
+\lecture{2}{Thu 06 Jan 2022 13:40}{Non-dispersive Waves}
+
+\subsectionfont{\fontsize{10}{10}\selectfont}
+
+\section{Non-dispersive Waves}%
+
+Satisfy dispersion relation.
+
+\[
+\omega = \alpha k
+.\] 
+
+where $ \omega$ is frequency and $k$ is the wave number. Examples include sound
+waves, and electromagnetic waves.
+
+\section{Sound waves in a homogeneous, invariant medium}%
+
+homogeneous: $u$ is constant in space
+invariant: $u$ is constant in time
+
+\subsection{The wave equation for small amplitude pertubations} 
+
+\textbf{Mass conservation} 
+time change in density is equal to divergence of mass (negative)
+
+\textbf{Momentum (ignoring gravity / viscosity)} 
+density times substantial time derivative of velocity equals gradient of
+pressure (negative)
+
+consider the background has
+
+\[
+\begin{cases}
+  p = p_{0} & \textbf{constant} \\
+  \rho = \rho_{0} & \textbf{constant} \\
+  \vec{u} = 0 & \textbf{no back flow} 
+\end{cases}
+.\] 
+
+then let
+
+\begin{align*}
+  p(x,t) &= p_0 + \hat p(x,t) \\
+  \rho(x,t) &= \rho_0+ \hat \rho(x,t) \\
+  \vec{u} &= 0 + \hat \vec{u}(x,t)
+\end{align*}
+
+where $\hat p << p_0$, $\hat \rho << \rho_0$ (i.e. small perturbations) and $x$ is a vector
+
+$\implies$ applying mass cons. and ignoring quadratic terms due to small
+perturbations 
+
+\[
+  \diffp[]{\hat \rho}{t} = - \rho_0 \nabla \vec{\hat u}
+.\] 
+
+$\implies$ applying momentum conservation and ignoring quadratic terms due to
+small perturbations 
+
+\[
+  \rho_0 \diffp[]{\hat u}{t} = - \nabla\hat p
+.\] 
+
+
+taking $\diffp[]{}{t}$ of mass conservation, then we get
+
+\[
+\diffp[2]{\hat \rho}{t} = \nabla^{2}\hat p
+.\] 
+
+which almost looks like the (hyperbolic) wave equation. We need EOS to relate
+$\hat \rho$ and $\hat p$
+
+
+Assume a perfect gas  $p=R \rho T$, then liberalizing this (applying small
+perturbations)
+
+\[
+  p_0 + \hat p = R ( \rho_0 + \hat \rho)(T_0+\hat T)
+.\]
+
+in the background $p_0=R \rho_0 T_0$, removing higher order terms, we get
+
+\[
+  \hat p = R(\hat \rho T_0 + \rho_0 \hat T)
+.\] 
+
+Make assumptions to simplify the problem. Assume $\hat T = 0$ (at least very
+close to zero). This would give us the desired relationship between $\hat \rho$
+and $\hat p$. Assuming temperature fluctuations decay very rapidly through
+radiation or diffusion). This is the isothermal assumption. So we have
+
+ \[
+\hat p = R \hat \rho T_0
+.\] 
+
+$\implies$ wave equation is
+
+\[
+\diffp[2]{\hat \rho}{t} = R T_0 \nabla^{2}\hat \rho
+.\] 
+
+where the wave speed (isothermal sound speed)
+
+\[
+  c_{T} = \sqrt{RT_0}
+.\] 
+
+for air $c_{T} \approx 290 \frac{m}{s}$ (approximately). Although air is not actually
+isothermal.
+
+
+Solve this using d'Alembert's technique (only works in $1$D). The idea is to
+use a change of variable $ \eta = x- ct$ and $\zeta = x+ct$. Then we get
+
+\[
+  \frac{\partial^{2}p}{\partial\eta\partial\zeta} = 0
+.\] 
+
+integrating twice, we get
+
+\begin{align*}
+  p(\eta,\zeta) &= F(\zeta) + G(\eta) \\
+  p(x,t) &= F(x+ct) + G(x-ct)
+\end{align*}
+
+True for any function satisfying $1$D wave equation over infinite domain $x\in
+(-\infty,\infty)$. Suppose initial conditions are
+
+\[
+\begin{cases}
+  p(x,0) = p_0(x) \\
+  \diffp[]{p}{t}(x,0) = q_0(x)
+\end{cases}
+.\] 
+
+applying these, we get
+
+\[
+\begin{cases}
+  p_0(x) = F(x) + G(x) \\
+  q_0(x) = cF'(x) -cG'(x)
+\end{cases}
+.\] 
+
+integrating $q_0$ 
+
+\[
+\frac{1}{c}  \int_{0}^{x} {q_0(s)} \: d{s} = (F(x)-F(0)) - (G(x) -G(0))
+.\] 
+
+this yields
+
+\[
+  p(x,t) = \frac{1}{2}p_0(x+ct) + \frac{1}{2}p_0(x-ct) + \frac{1}{2c}
+  \int_{x-ct}^{x+ct} {q_0(s)} \: d{s} 
+.\]
+
+\section{Monochromatic wave solution of the wave equation in an infinite domain}%
+
+In electromagnetic waves, single frequency of light. For sound, analogously,
+this is just a single sound frequency. Assume the ansatz
+
+\[
+  p(x,t) = \hat p e^{ikx-i \omega t}
+.\] 
+
+where $\hat p$ can be complex and is constant. At the end, just take the real
+part of the solution $Re(p(x,t))$. Plugging this into the wave equation, we get
+
+\[
+\omega^{2} = c^{2}k^{2} \implies \omega = \pm ck
+.\] 
+
+This is the dispersion relation for monochromatic sound waves, and shows that
+the waves are non-dispersive. By convention, choose $ \omega>0$, so
+
+\[
+\omega = c|k|
+.\] 
+
+with this choice, the sign of $k$ tells us the direction of propagation. Taking
+the real part of $p(x,t)$ as a linear combination of $k>0$ (propagates to the
+right) and $k<0$ (soln propagates to the left) then
+consider $\hat p_{+}$ and $\hat p_{-}$ are either real, or pure imaginary.
+
+
+\textbf{Define Phase Speed}
+
+\begin{align*}
+  p(x,t) &= \hat p e^{ikx-i \omega t} \\
+         &= \hat p e^{i \theta(x,t)}
+\end{align*}
+
+where $\theta(x,t) = kx- \omega t$ is the \textbf{phase} of the wave. If
+$\theta$ is constant then $p$ is constant, though if $\theta$ is constant, then
+so is $kx- \omega t = \text{const}$.
+
+
+Drawing lines for $k>0$, and $k<0$ in the $x,t$ plane for
+
+\begin{align*}
+  t &= \frac{kx -\text{const}}{ \omega} \\
+    &= \text{sign}(k) \frac{x}{c} + \text{const}
+\end{align*}
+
+
+The constant phase propagates at velocity c, which propagates at  So .. phase
+speed and group speed are the same. unique to non-dispersive waves.

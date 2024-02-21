@@ -1,0 +1,191 @@
+% !TEX root = /home/computer/ucsc/master-2/quarter-2/advanced-fluids/master.tex
+\lecture{4}{Thu 03 Feb 2022 13:35}{Chapter 5 - part 2 (nonlinear convection}
+
+\subsectionfont{\fontsize{10}{10}\selectfont}
+
+
+\subsection{Weakly nonlinear theory of RBC above onset (above $Ra_c$)}%
+\label{sub:weakly_nonlinear_theory_of_rbc_above_onset}
+
+We know from data that convective rolls are *steady* (settle in steady state
+with finite amplitude).
+
+\begin{itemize}
+  \item Can we model this?
+\end{itemize}
+
+
+\subsection{Preliminaries: tools needed}%
+\label{sub:preliminaries}
+
+\begin{itemize}
+  \item Solvability condition (Fredholm's alternative (here for ODE's, but
+    generalizes))
+\end{itemize}
+
+Consider a linear ODE
+\[
+  L [u(x)] = F(x)
+.\] 
+
+defined on $ (a,b)$ with boundary conditions
+
+\begin{align*}
+  u(a) = 0 \\
+  u(b) = 0
+\end{align*}
+
+\textbf{Theorem:} If $L$ is self-adjoint with respect to the inner-product
+$ \langle .,. \rangle$ and if there is a non-zero solution to
+\[
+  L(u_{n}) = 0
+.\]
+
+the equation $L(u) = F$ only has solutions if
+\[
+\langle u_{n}, F \rangle = 0
+.\] 
+
+\textbf{Definition} an operator $L$ is self-adjoint w.r.t the inner product
+$ \left .,.  \right .,.$, if 
+\[
+\langle Lv,u \rangle = \langle v, Lu \rangle
+.\] 
+
+where
+\[
+  \langle u, v \rangle = \int_{a}^{b} {g(x)v(x)u(x)} \: d{x} 
+.\] 
+
+\textbf{Note:} Self adjoint operator for ODEs are unitarily diagonalizable
+
+\textbf{Equivalently} we know that eigenfunctions of $L$ correspoding to
+different eigenvalues are orthogonal w.r.t to $ \langle., .  \rangle$.
+Therefore there exists a basis of eigenfunctions for any function on $ (a,b)$
+can be written as
+\[
+  f(x) = \sum_{n}a_{n}v_{n}(x)
+.\] 
+
+these are called generalized Fourier Series
+
+\begin{proof}
+  We know that the solution to $L [u (x)] = F(x)$, if it exists can be written
+  as
+  \[
+  u (x) = \sum a_{n}v_{n}
+  .\] 
+
+  where $L [v_{n}(x)] = \lambda _{n}v_{n}(x)$ 
+
+  We also know 
+  \[
+    F (x) = \sum_{n} b_{n}v_{n}(x)
+  .\] 
+  \[
+    \implies L [ \sum_{n} a_{n}v_{n}(s) = \sum b_{n}v_{n}(x)]
+  .\] 
+
+  Take dot product with $v_{m} (x)$ 
+  \[
+  \sum_{n} a_{n} \lambda _{n} \langle v_{m}, v_{n} \rangle = \sum_{n} b_{n}
+  \langle v_{m}, v_{n} \rangle
+  .\] 
+
+  \[
+    \implies  a_{m} = \frac{b_{m}}{\lambda _{m}}
+  .\] 
+
+  which is fine unless $\lambda _{m} - 0$ But if there is a solution to the
+  problem 
+  \[
+  Lu_{n} = 0
+  .\] 
+  then that means $u_{h}$ is an eigenfunction of $L$ with eigenvalue $0$. If
+  thats the case then $a_{m}$ corresponds to that eigenvalue is undefined unless
+  $b_{m} = 0$ as well. That happens when
+  \begin{align*}
+    F(x) &= \sum b_{n}v_{n} \\
+         &=
+  \end{align*}
+\end{proof}
+
+\begin{itemize}
+  \item "Baby step" weakly nonlinear theory on simple PDE
+\end{itemize}
+
+Consider 
+\[
+\begin{cases}
+  \diffp[]{u}{t} -\sin u = \frac{1}{R} \diffp[2]{u}{z} \\
+  u(0) = 0, & u( \pi ) = 0
+\end{cases}
+.\] 
+
+Steady state solution: $u= 0$. Assume $u$ is small and linearize around steady
+state. Use $\sin(u) = u$, then
+\[
+\diffp[]{u}{t} -u = \frac{1}{R} \diffp[2]{u}{z}
+.\] 
+
+Seeking solutions of the kind
+\[
+  u(z,t) = \hat{u }(z)e^{\lambda t}
+.\] 
+
+then 
+
+\[
+\diff[2]{\hat u}{z} = R (\lambda -1) \hat u
+.\] 
+
+Then look for solutions that satisfy boundary conditions $u(0) = 0$, $u(\pi
+) = 0$, then
+\[
+\hat u = \begin{cases}
+  \sin( \sqrt{R (1 -\lambda)} \\
+  \cos( \sqrt{R (1 -\lambda)} \\
+\end{cases}
+.\] 
+
+$u (0) = 0 \implies $ no cosine. $u (\pi ) = 0 implies$
+\[
+\lambda _{n} = 1 - \frac{n^2}{R}
+.\] 
+
+If $R < 1$, then all eigenvalues $<0$ and all perturbations decay
+
+If $1<R<4$, then only mode that grows is $n = 1$.
+\begin{itemize}
+  \item we expect very simple behavior (single mode excited)
+  \item we want to study the nonlinear saturation of that mode, for $R
+    = 1 + \epsilon $.
+
+    ($R$ is just a little bit above critical.)
+\end{itemize}
+
+for this $R$, 
+  \begin{align*}
+    \lambda _{1} = 1 - \frac{1}{R} = 1 - \frac{1}{1+ \epsilon } \\
+    = 1 - (1-\epsilon  + \epsilon ^2 + \dots) = \epsilon + \text{H.O.T}
+  \end{align*}
+
+  \begin{itemize}
+    \item the mode is growing exponentially at rate $\epsilon $ 
+      \[
+        u(z,t) \approx e^{\epsilon t}
+      .\] 
+  \end{itemize}
+
+  So now the PDE is 
+  \[
+  \epsilon \diffp[]{u}{T} - \sin u  = \frac{1}{1 + \epsilon } \diffp[2]{u}{z}
+  .\] 
+
+  and we assume
+  \[
+    u(z,T) = \epsilon ^{\alpha } u_0 + \epsilon ^{2 \alpha } u_{1} + \dots
+  .\] 
+
+  this assumes the nonlinear solutions has small amplitude of $ \epsilon $ is
+  small. How small $u$
